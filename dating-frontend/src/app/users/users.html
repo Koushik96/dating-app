@@ -1,0 +1,96 @@
+<div class="discover-screen">
+
+  <div *ngIf="users().length === 0" class="empty-message">
+    No more profiles available ❤️
+  </div>
+
+  <div
+    *ngIf="users().length > 0"
+    class="profile-card"
+    (touchstart)="onSwipeStart($event)"
+    (touchend)="onSwipeEnd($event)"
+  >
+
+    <!-- Full-screen profile photo -->
+    <img
+      class="profile-photo"
+      [src]="getProfilePhoto(users()[0].id)"
+      [alt]="users()[0].name"
+    />
+
+    <div class="photo-overlay"></div>
+
+
+    <!-- Basic profile information -->
+  <div class="profile-info" *ngIf="!showDetails">
+
+  <div class="profile-text">
+    <h1>{{ users()[0].name }}</h1>
+  </div>
+
+  <button
+    class="details-arrow"
+    type="button"
+    (click)="showDetails = true"
+    aria-label="View profile details"
+  >
+    ↑
+  </button>
+
+</div>
+
+    <!-- About section -->
+    <div class="profile-details" *ngIf="showDetails">
+      <button
+  class="details-arrow close-arrow"
+  type="button"
+  (click)="showDetails = false"
+  aria-label="Close profile details"
+>
+  ↓
+</button>
+
+      <div class="details-handle"></div>
+
+      <h2>About</h2>
+      <p class="bio">Bio will appear here.</p>
+
+      <h3>Basic Information</h3>
+
+      <div class="detail-item">
+        <span>Age</span>
+        <strong>Not added</strong>
+      </div>
+
+      <div class="detail-item">
+        <span>Location</span>
+        <strong>Not added</strong>
+      </div>
+
+      <h3>Interests</h3>
+      <div class="interest-list">
+        <span>Interests coming soon</span>
+      </div>
+
+      
+
+    </div>
+
+    <!-- Like and Pass buttons -->
+    <div class="action-buttons">
+      <button
+        class="dislike-btn"
+        type="button"
+        (click)="dislikeUser(users()[0].id)"
+      >✕</button>
+
+      <button
+  class="like-btn"
+  type="button"
+  (click)="toggleLike(users()[0].id)"
+>
+  {{ likedUserIds().includes(users()[0].id) ? '♥' : '♡' }}
+</button>
+
+  </div>
+</div>

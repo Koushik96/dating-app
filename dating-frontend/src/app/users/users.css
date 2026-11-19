@@ -1,0 +1,265 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.discover-screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  font-family: Arial, sans-serif;
+}
+
+.profile-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  overflow: hidden;
+  background: #222;
+  color: white;
+}
+
+.profile-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    transparent 55%
+  );
+}
+
+.profile-info {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 115px;
+  z-index: 2;
+}
+
+.profile-info h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.profile-info p {
+  font-size: 15px;
+  margin-bottom: 18px;
+  color: #eee;
+  overflow-wrap: anywhere;
+}
+
+.details-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.profile-details {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow-y: auto;
+  background: #fff;
+  color: #222;
+  padding: 35px 24px 120px;
+  border-radius: 22px 22px 0 0;
+}
+
+.profile-details h2 {
+  margin-top: 0;
+}
+
+.profile-details p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.action-buttons button {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dislike-btn {
+  color: #888;
+}
+
+.like-btn {
+  color: #e63967;
+}
+
+.empty-message {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Desktop and tablet */
+@media (min-width: 481px) {
+  .profile-card {
+    height: min(850px, 95vh);
+    border-radius: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .discover-screen {
+    min-height: 100dvh;
+    align-items: stretch;
+  }
+
+  .profile-card {
+    height: 100dvh;
+    max-width: none;
+  }
+}
+
+.profile-info {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 115px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-text {
+  min-width: 0;
+}
+
+.profile-info h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.profile-info p {
+  font-size: 15px;
+  margin: 0;
+  color: #eee;
+  overflow-wrap: anywhere;
+}
+
+.details-arrow {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: white;
+  font-size: 27px;
+  font-weight: 300;
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.details-arrow:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.92);
+}
+
+.close-arrow {
+  position: sticky;
+  top: 0;
+  display: flex;
+  margin-left: auto;
+}
+
+.profile-details {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow-y: auto;
+  background: #fff;
+  color: #222;
+  padding: 25px 24px 120px;
+  border-radius: 22px 22px 0 0;
+}
+
+.details-handle {
+  width: 45px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 10px;
+  margin: 0 auto 30px;
+}
+
+.profile-details h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.profile-details h3 {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.bio {
+  color: #666;
+  line-height: 1.6;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-item span {
+  color: #777;
+}
+
+.interest-list span {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #ffe8ee;
+  color: #e63967;
+  border-radius: 20px;
+}

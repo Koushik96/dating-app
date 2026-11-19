@@ -1,0 +1,30 @@
+<div class="matches-container">
+  <h2>Your Matches ❤️</h2>
+  <p class="subtitle">People who liked you back!</p>
+  <p>Debug: {{ matches().length }} matches loaded</p>
+
+  <div class="matches-grid">
+
+    <div *ngIf="matches().length === 0" class="empty-message">
+      No matches yet. Keep discovering!
+    </div>
+
+    <div *ngFor="let match of matches()" class="match-card">
+
+      <div class="profile-placeholder">
+        {{ match.name.charAt(0).toUpperCase() }}
+      </div>
+
+      <div class="match-info">
+        <h3>{{ match.name }}</h3>
+        <p>{{ match.email }}</p>
+      </div>
+
+      <div class="match-badge">
+        ❤️ It's a Match!
+      </div>
+
+    </div>
+
+  </div>
+</div>
